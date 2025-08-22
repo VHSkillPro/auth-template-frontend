@@ -1,0 +1,8 @@
+{
+    "LoginPage": {
+        "title": "Sign In",
+        "welcome": "Welcome back!",
+        "emailPlaceholder": "Enter your email",
+        "passwordPlaceholder": "Enter your password"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "LoginPage": {
+        "title": "Đăng nhập",
+        "welcome": "Chào mừng bạn trở lại!",
+        "emailPlaceholder": "Nhập email của bạn",
+        "passwordPlaceholder": "Nhập mật khẩu của bạn"
+    }
+}
