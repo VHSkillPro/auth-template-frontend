@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 const antdTheme = {
   token: {
     fontFamily: "var(--font-inter), sans-serif",
+    borderRadius: 10,
   },
 };
 
@@ -26,8 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased`}>
+    <html>
+      <body className={`${inter.variable} antialiased`}>
         <ConfigProvider theme={antdTheme}>{children}</ConfigProvider>
       </body>
     </html>
