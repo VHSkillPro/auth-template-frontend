@@ -1,8 +1,23 @@
 {
-    "LoginPage": {
-        "title": "Sign In",
-        "welcome": "Welcome back!",
-        "emailPlaceholder": "Enter your email",
-        "passwordPlaceholder": "Enter your password"
-    }
+  "SignInPage": {
+    "title": "Sign In",
+    "welcome": "Welcome back!",
+    "emailPlaceholder": "Enter your email",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Invalid email address",
+    "passwordPlaceholder": "Enter your password",
+    "passwordRequired": "Password is required",
+    "signInButton": "Sign In",
+    "signUpButton": "Sign Up",
+    "forgotPassword": "Forgot Password?",
+    "signInSuccess": "Sign in successfully!",
+    "emailOrPasswordInvalid": "Email or password is invalid"
+  },
+  "NotFoundPage": {
+    "title": "Page Not Found",
+    "subTitle": "Sorry, the page you visited does not exist."
+  },
+  "Common": {
+    "serverError": "Internal server error"
+  }
 }

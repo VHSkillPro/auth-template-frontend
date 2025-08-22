@@ -1,8 +1,23 @@
 {
-    "LoginPage": {
-        "title": "Đăng nhập",
-        "welcome": "Chào mừng bạn trở lại!",
-        "emailPlaceholder": "Nhập email của bạn",
-        "passwordPlaceholder": "Nhập mật khẩu của bạn"
-    }
+  "SignInPage": {
+    "title": "Đăng nhập",
+    "welcome": "Chào mừng bạn trở lại!",
+    "emailPlaceholder": "Nhập email của bạn",
+    "emailRequired": "Vui lòng nhập email",
+    "emailInvalid": "Địa chỉ email không hợp lệ",
+    "passwordPlaceholder": "Nhập mật khẩu của bạn",
+    "passwordRequired": "Vui lòng nhập mật khẩu",
+    "signInButton": "Đăng nhập",
+    "signUpButton": "Đăng ký",
+    "forgotPassword": "Quên mật khẩu?",
+    "signInSuccess": "Đăng nhập thành công!",
+    "emailOrPasswordInvalid": "Email hoặc mật khẩu không hợp lệ"
+  },
+  "NotFoundPage": {
+    "title": "Không tìm thấy trang",
+    "subTitle": "Xin lỗi, trang bạn đã truy cập không tồn tại."
+  },
+  "Common": {
+    "serverError": "Lỗi máy chủ nội bộ"
+  }
 }
