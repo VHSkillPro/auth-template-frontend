@@ -1,8 +1,10 @@
 import "@ant-design/v5-patch-for-react-19";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ConfigProvider } from "antd";
+import { App, ConfigProvider } from "antd";
 import "./globals.css";
+import { AntdRegistry } from "@ant-design/nextjs-registry";
+import NotificationProvider from "@/context/NotificationProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -29,7 +31,13 @@ export default function RootLayout({
   return (
     <html>
       <body className={`${inter.variable} antialiased`}>
-        <ConfigProvider theme={antdTheme}>{children}</ConfigProvider>
+        <AntdRegistry>
+          <ConfigProvider theme={antdTheme}>
+            <App>
+              <NotificationProvider>{children}</NotificationProvider>
+            </App>
+          </ConfigProvider>
+        </AntdRegistry>
       </body>
     </html>
   );
