@@ -5,9 +5,9 @@
  * @property message A descriptive message about the API response.
  */
 export interface IApiResponse {
-    success: boolean;
-    statusCode: number;
-    message: string;
+  success: boolean;
+  statusCode: number;
+  message: string;
 }
 
 /**
@@ -18,5 +18,5 @@ export interface IApiResponse {
  * @property {T} data - The data returned from the API.
  */
 export interface IDataApiResponse<T> extends IApiResponse {
-    data: T;
+  data: T;
 }

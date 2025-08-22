@@ -1,9 +1,9 @@
-"use client";
-import { flagsPath, routing } from "@/i18n/routing";
-import { Avatar, FloatButton } from "antd";
-import FloatButtonGroup from "antd/es/float-button/FloatButtonGroup";
-import { usePathname, useRouter } from "next/navigation";
-import { useTransition } from "react";
+'use client';
+import { flagsPath, routing } from '@/i18n/routing';
+import { Avatar, FloatButton } from 'antd';
+import FloatButtonGroup from 'antd/es/float-button/FloatButtonGroup';
+import { usePathname, useRouter } from 'next/navigation';
+import { useTransition } from 'react';
 
 export default function LocaleSwitcher({
   currentLocale,
@@ -12,7 +12,7 @@ export default function LocaleSwitcher({
 }) {
   const router = useRouter();
   const pathname = usePathname();
-  const [_, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   /**
    * Handles the change of locale in the application.
@@ -26,7 +26,7 @@ export default function LocaleSwitcher({
 
     startTransition(() => {
       const newPath = `/${newLocale}${pathname.substring(
-        pathname.indexOf("/", 1)
+        pathname.indexOf('/', 1)
       )}`;
       router.replace(newPath);
     });

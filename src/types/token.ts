@@ -7,8 +7,8 @@
  * @property refreshTokenExpiration - The expiration time (in seconds or milliseconds) of the refresh token.
  */
 export interface IToken {
-    accessToken: string;
-    refreshToken: string;
-    accessTokenExpiration: number;
-    refreshTokenExpiration: number;
+  accessToken: string;
+  refreshToken: string;
+  accessTokenExpiration: number;
+  refreshTokenExpiration: number;
 }

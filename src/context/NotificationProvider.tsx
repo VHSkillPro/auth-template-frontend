@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { App } from "antd";
-import { MessageInstance } from "antd/es/message/interface";
-import { NotificationInstance } from "antd/es/notification/interface";
-import { createContext, ReactNode, useContext } from "react";
+import { App } from 'antd';
+import { MessageInstance } from 'antd/es/message/interface';
+import { NotificationInstance } from 'antd/es/notification/interface';
+import { createContext, ReactNode, useContext } from 'react';
 
 // Define the context type
 interface NotificationContextType {
@@ -92,7 +92,7 @@ export function useNotification() {
   const context = useContext(NotificationContext);
   if (!context) {
     throw new Error(
-      "useNotification must be used within a NotificationProvider"
+      'useNotification must be used within a NotificationProvider'
     );
   }
   return context;

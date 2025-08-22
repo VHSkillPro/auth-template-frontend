@@ -5,6 +5,6 @@
  * @property {string} password - The user's password.
  */
 export interface ISignInForm {
-    email: string;
-    password: string;
+  email: string;
+  password: string;
 }

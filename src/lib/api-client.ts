@@ -1,4 +1,4 @@
-import { IApiResponse } from "@/types";
+import { IApiResponse } from '@/types';
 
 /**
  * Handles the response from a fetch request, parsing the JSON body.
@@ -12,12 +12,12 @@ import { IApiResponse } from "@/types";
  * @returns A promise resolving to either type `T` (on success) or `IApiResponse` (on error).
  */
 async function handleResponse<T>(
-    response: Response
+  response: Response
 ): Promise<T | IApiResponse> {
-    if (!response.ok) {
-        return (await response.json()) as Promise<IApiResponse>;
-    }
-    return response.json() as Promise<T>;
+  if (!response.ok) {
+    return (await response.json()) as Promise<IApiResponse>;
+  }
+  return response.json() as Promise<T>;
 }
 
 /**
@@ -29,48 +29,50 @@ async function handleResponse<T>(
  * @returns A promise resolving to the parsed response of type `T` or `IApiResponse`.
  */
 async function apiFetch<T>(endpoint: string, options: RequestInit = {}) {
-    const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-    const url = `${baseUrl}${endpoint}`;
+  const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const url = `${baseUrl}${endpoint}`;
 
-    const defaultHeaders = {
-        "Content-Type": "application/json",
-    };
+  const defaultHeaders = {
+    'Content-Type': 'application/json',
+  };
 
-    const config: RequestInit = {
-        ...options,
-        headers: {
-            ...defaultHeaders,
-            ...options.headers,
-        },
-    };
+  const config: RequestInit = {
+    ...options,
+    headers: {
+      ...defaultHeaders,
+      ...options.headers,
+    },
+  };
 
-    try {
-        const response = await fetch(url, config);
-        return handleResponse<T | IApiResponse>(response);
-    } catch {
-        return {
-            success: false,
-            statusCode: 500,
-            message: "An error occurred while fetching the API.",
-        } as IApiResponse;
-    }
+  try {
+    const response = await fetch(url, config);
+    return handleResponse<T | IApiResponse>(response);
+  } catch {
+    return {
+      success: false,
+      statusCode: 500,
+      message: 'An error occurred while fetching the API.',
+    } as IApiResponse;
+  }
 }
 
 export const api = {
-    get: <T>(endpoint: string, options?: RequestInit) =>
-        apiFetch<T>(endpoint, { ...options, method: "GET" }),
-    post: <T>(endpoint: string, body: any, options?: RequestInit) =>
-        apiFetch<T>(endpoint, {
-            ...options,
-            method: "POST",
-            body: JSON.stringify(body),
-        }),
-    put: <T>(endpoint: string, body: any, options?: RequestInit) =>
-        apiFetch<T>(endpoint, {
-            ...options,
-            method: "PUT",
-            body: JSON.stringify(body),
-        }),
-    delete: <T>(endpoint: string, options?: RequestInit) =>
-        apiFetch<T>(endpoint, { ...options, method: "DELETE" }),
+  get: <T>(endpoint: string, options?: RequestInit) =>
+    apiFetch<T>(endpoint, { ...options, method: 'GET' }),
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  post: <T>(endpoint: string, body: any, options?: RequestInit) =>
+    apiFetch<T>(endpoint, {
+      ...options,
+      method: 'POST',
+      body: JSON.stringify(body),
+    }),
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  put: <T>(endpoint: string, body: any, options?: RequestInit) =>
+    apiFetch<T>(endpoint, {
+      ...options,
+      method: 'PUT',
+      body: JSON.stringify(body),
+    }),
+  delete: <T>(endpoint: string, options?: RequestInit) =>
+    apiFetch<T>(endpoint, { ...options, method: 'DELETE' }),
 };

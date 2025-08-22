@@ -1,8 +1,8 @@
-import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
-import { Fragment } from "react";
-import LocaleSwitcher from "./_component/LocaleSwitcher";
+import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import { notFound } from 'next/navigation';
+import { routing } from '@/i18n/routing';
+import { Fragment } from 'react';
+import LocaleSwitcher from './_component/LocaleSwitcher';
 
 export default async function LocaleLayout({
   children,

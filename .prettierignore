@@ -1,0 +1,22 @@
+# Build output
+.next/
+build/
+dist/
+out/
+
+# Dependencies
+node_modules/
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# Caching
+.eslintcache
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Generated files
+coverage/
