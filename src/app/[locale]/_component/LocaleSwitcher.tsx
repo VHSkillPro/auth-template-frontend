@@ -27,11 +27,8 @@ export default function LocaleSwitcher({
 
     startTransition(() => {
       const segments = pathname.split('/');
-      if (segments[0] === '') {
-        segments.shift();
-      }
-      segments[0] = newLocale;
-      router.replace('/' + segments.join('/') + searchParams.toString());
+      segments[1] = newLocale;
+      router.replace(segments.join('/') + '?' + searchParams.toString());
     });
   };
 
