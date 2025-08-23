@@ -8,23 +8,8 @@ import { IDataApiResponse } from './types/response';
 
 const intlMiddleware = createMiddleware(routing);
 
-/**
- * Determines whether a given pathname starts with any of the supported locale prefixes.
- *
- * Checks if the pathname begins with `/{locale}/` or exactly matches `/{locale}` for any locale
- * defined in `routing.locales`.
- *
- * @param pathname - The URL pathname to check for a locale prefix.
- * @returns `true` if the pathname starts with a supported locale, otherwise `false`.
- */
-const startWithLocale = (pathname: string) => {
-  return routing.locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  );
-};
-
-// Authentication-related URLs
-const AUTH_URLS = [
+// Publicly accessible URLs
+const PUBLIC_URLS = [
   '/sign-in',
   '/sign-up',
   '/verify-email',
@@ -32,29 +17,6 @@ const AUTH_URLS = [
   '/reset-password',
   '/send-reset-password-email',
 ];
-
-/**
- * Checks if the given pathname starts with any of the authentication URLs for any supported locale.
- *
- * Iterates through all authentication URLs and locales, and returns `true` if the pathname begins
- * with a combination of locale and authentication URL (e.g., `/en/login`). Otherwise, returns `false`.
- *
- * @param pathname - The URL pathname to check.
- * @returns `true` if the pathname starts with a locale-prefixed authentication URL, otherwise `false`.
- */
-const startWithAuthUrl = (pathname: string) => {
-  for (const url of AUTH_URLS) {
-    for (const locale of routing.locales) {
-      if (
-        pathname.startsWith(`/${locale}${url}/`) ||
-        pathname === `/${locale}${url}`
-      ) {
-        return true;
-      }
-    }
-  }
-  return false;
-};
 
 /**
  * Retrieves the user profile using the provided access token.
@@ -69,33 +31,6 @@ const getProfile = async (accessToken: string) => {
     },
   });
   return data;
-};
-
-/**
- * Handles redirection to the sign-in page for unauthenticated requests.
- *
- * This middleware function checks if the incoming request is targeting an authentication-related page.
- * If not, it redirects the user to the `/sign-in` page and deletes any existing authentication cookies
- * (`accessToken` and `refreshToken`). If the request is for an authentication page, it proceeds normally
- * while also deleting the authentication cookies.
- *
- * @param request - The incoming Next.js request object.
- * @returns A `NextResponse` object that either redirects to the sign-in page or allows the request to proceed.
- */
-const redirectLogin = (request: NextRequest) => {
-  const isAuthPage = startWithAuthUrl(request.nextUrl.pathname);
-
-  if (!isAuthPage) {
-    const response = NextResponse.redirect(new URL('/sign-in', request.url));
-    response.cookies.delete('accessToken');
-    response.cookies.delete('refreshToken');
-    return response;
-  }
-
-  const response = NextResponse.next();
-  response.cookies.delete('accessToken');
-  response.cookies.delete('refreshToken');
-  return response;
 };
 
 /**
@@ -121,79 +56,102 @@ export const config = {
 };
 
 export default async function middleware(request: NextRequest) {
-  // Check if the pathname starts with a locale
-  if (!startWithLocale(request.nextUrl.pathname)) {
+  const pathname = request.nextUrl.pathname;
+  let currentLocale = request.nextUrl.pathname.split('/')[1];
+  if (currentLocale && !routing.locales.find((loc) => loc === currentLocale)) {
+    currentLocale = routing.defaultLocale;
+  }
+
+  const isPublicPage = PUBLIC_URLS.some((url) => {
+    const localizedUrl = `/${currentLocale}${url}`;
+    return (
+      pathname === url ||
+      pathname === localizedUrl ||
+      pathname.startsWith(`${localizedUrl}/`)
+    );
+  });
+
+  // If the request is for a public page
+  if (isPublicPage) {
+    const accessToken = request.cookies.get('accessToken')?.value;
+
+    if (accessToken) {
+      const profileData = await getProfile(accessToken);
+      if (profileData.success) {
+        return NextResponse.redirect(new URL(`/${currentLocale}`, request.url));
+      }
+    }
+
     return intlMiddleware(request);
   }
 
-  // Get locale
-  const currentLocale = request.nextUrl.pathname.split('/')[1];
+  console.log('>>> Protected Route Middleware:', pathname);
 
-  // Log request information
-  if (process.env.NODE_ENV === 'development') {
-    console.log('>>> Middleware called for', request.nextUrl.pathname);
-  }
-
-  const accessToken = request.cookies.get('accessToken')?.value || ' ';
+  const accessToken = request.cookies.get('accessToken')?.value;
   const refreshToken = request.cookies.get('refreshToken')?.value;
 
-  // Determine the global response based on authentication URLs
-  const globalResponse = startWithAuthUrl(request.nextUrl.pathname)
-    ? NextResponse.redirect(new URL(`/${currentLocale}/`, request.url))
-    : NextResponse.next();
+  const redirectToLogin = () => {
+    const response = NextResponse.redirect(
+      new URL(`/${currentLocale}/sign-in`, request.url)
+    );
+    response.cookies.delete('accessToken');
+    response.cookies.delete('refreshToken');
+    return response;
+  };
 
-  // Get profile data
-  const profileData = await getProfile(accessToken);
-
-  // If accessToken valid
-  if (profileData.success) {
-    return globalResponse;
+  if (!accessToken && !refreshToken) {
+    return redirectToLogin();
   }
 
-  // If server error
-  if (profileData.statusCode === 500) {
-    return NextResponse.redirect(new URL('/500', request.url));
+  // Try accessing the profile with the access token
+  if (accessToken) {
+    const profileData = await getProfile(accessToken);
+
+    if (profileData.success) {
+      return intlMiddleware(request);
+    }
+
+    if (profileData.statusCode === 500) {
+      return NextResponse.redirect(new URL('/500', request.url));
+    }
   }
 
-  // If refreshToken is not available, redirect to login
   if (!refreshToken) {
-    return redirectLogin(request);
+    return redirectToLogin();
   }
 
-  // Attempt to refresh the access token
   const refreshData = await refresh(refreshToken);
 
-  // If refresh token is valid
   if (refreshData.success) {
-    const newAccessToken = (refreshData as IDataApiResponse<IToken>).data
-      .accessToken;
-    const newRefreshToken = (refreshData as IDataApiResponse<IToken>).data
-      .refreshToken;
+    const response = intlMiddleware(request);
 
-    globalResponse.cookies.set('accessToken', newAccessToken, {
+    const {
+      accessToken: newAccessToken,
+      refreshToken: newRefreshToken,
+      accessTokenExpiration,
+      refreshTokenExpiration,
+    } = (refreshData as IDataApiResponse<IToken>).data;
+
+    response.cookies.set('accessToken', newAccessToken, {
       httpOnly: true,
-      maxAge: (refreshData as IDataApiResponse<IToken>).data
-        .accessTokenExpiration,
+      maxAge: accessTokenExpiration,
       sameSite: 'lax',
       path: '/',
     });
 
-    globalResponse.cookies.set('refreshToken', newRefreshToken, {
+    response.cookies.set('refreshToken', newRefreshToken, {
       httpOnly: true,
-      maxAge: (refreshData as IDataApiResponse<IToken>).data
-        .refreshTokenExpiration,
+      maxAge: refreshTokenExpiration,
       sameSite: 'lax',
       path: '/',
     });
 
-    globalResponse.headers.set('Authorization', `Bearer ${newAccessToken}`);
-    return globalResponse;
+    return response;
   }
 
-  // If refresh token is not valid
   if (refreshData.statusCode === 500) {
     return NextResponse.redirect(new URL('/500', request.url));
   }
 
-  return redirectLogin(request);
+  return redirectToLogin();
 }
