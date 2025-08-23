@@ -52,6 +52,12 @@
     "sendVerificationEmailSuccessError": "Failed to send verification email.",
     "emailLabel": "Email"
   },
+  "VerifyEmailPage": {
+    "title": "Verify Your Email",
+    "loading": "Verifying...",
+    "emailVerified": "Your email has been verified successfully!",
+    "emailNotVerified": "Email verification failed or the token has expired."
+  },
   "NotFoundPage": {
     "title": "Page Not Found",
     "subTitle": "Sorry, the page you visited does not exist."

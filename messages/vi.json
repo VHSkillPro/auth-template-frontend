@@ -52,6 +52,12 @@
     "sendVerificationEmailSuccessError": "Gửi email xác minh thất bại.",
     "emailLabel": "Email"
   },
+  "VerifyEmailPage": {
+    "title": "Xác minh email của bạn",
+    "loading": "Đang xác minh...",
+    "emailVerified": "Email của bạn đã được xác minh thành công!",
+    "emailNotVerified": "Xác minh email không thành công hoặc mã thông báo đã hết hạn."
+  },
   "NotFoundPage": {
     "title": "Không tìm thấy trang",
     "subTitle": "Xin lỗi, trang bạn đã truy cập không tồn tại."
