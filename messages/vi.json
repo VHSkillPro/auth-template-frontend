@@ -62,6 +62,10 @@
     "title": "Không tìm thấy trang",
     "subTitle": "Xin lỗi, trang bạn đã truy cập không tồn tại."
   },
+  "InternalServerErrorPage": {
+    "title": "Lỗi máy chủ nội bộ",
+    "subTitle": "Xin lỗi, đã xảy ra sự cố trên máy chủ của chúng tôi."
+  },
   "Common": {
     "serverError": "Lỗi máy chủ nội bộ"
   }

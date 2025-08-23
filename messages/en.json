@@ -62,6 +62,10 @@
     "title": "Page Not Found",
     "subTitle": "Sorry, the page you visited does not exist."
   },
+  "InternalServerErrorPage": {
+    "title": "Internal Server Error",
+    "subTitle": "Sorry, something went wrong on our end."
+  },
   "Common": {
     "serverError": "Internal server error"
   }
