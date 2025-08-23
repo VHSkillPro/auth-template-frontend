@@ -29,6 +29,8 @@ const AUTH_URLS = [
   '/sign-up',
   '/verify-email',
   '/resend-verification-email',
+  '/reset-password',
+  '/send-reset-password-email',
 ];
 
 /**
@@ -124,6 +126,9 @@ export default async function middleware(request: NextRequest) {
     return intlMiddleware(request);
   }
 
+  // Get locale
+  const currentLocale = request.nextUrl.pathname.split('/')[1];
+
   // Log request information
   if (process.env.NODE_ENV === 'development') {
     console.log('>>> Middleware called for', request.nextUrl.pathname);
@@ -134,7 +139,7 @@ export default async function middleware(request: NextRequest) {
 
   // Determine the global response based on authentication URLs
   const globalResponse = startWithAuthUrl(request.nextUrl.pathname)
-    ? NextResponse.redirect(new URL(`/${request.nextUrl.locale}`, request.url))
+    ? NextResponse.redirect(new URL(`/${currentLocale}/`, request.url))
     : NextResponse.next();
 
   // Get profile data
