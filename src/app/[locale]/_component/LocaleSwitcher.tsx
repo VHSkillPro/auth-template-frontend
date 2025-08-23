@@ -26,10 +26,12 @@ export default function LocaleSwitcher({
     }
 
     startTransition(() => {
-      const newPath = `/${newLocale}${pathname.substring(
-        pathname.indexOf('/', 1)
-      )}?${searchParams.toString()}`;
-      router.replace(newPath);
+      const segments = pathname.split('/');
+      if (segments[0] === '') {
+        segments.shift();
+      }
+      segments[0] = newLocale;
+      router.replace('/' + segments.join('/') + searchParams.toString());
     });
   };
 
