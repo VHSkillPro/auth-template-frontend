@@ -49,3 +49,16 @@ export interface IToken {
   accessTokenExpiration: number;
   refreshTokenExpiration: number;
 }
+
+export interface IProfile {
+  id: number;
+  email: string;
+  firstName: string;
+  lastName: string;
+  permissions: string[];
+  enabled: boolean;
+  locked: boolean;
+  superuser: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+}
