@@ -50,6 +50,20 @@ export interface IToken {
   refreshTokenExpiration: number;
 }
 
+/**
+ * Represents a user profile with authentication and authorization details.
+ *
+ * @property {number} id - Unique identifier for the user.
+ * @property {string} email - User's email address.
+ * @property {string} firstName - User's first name.
+ * @property {string} lastName - User's last name.
+ * @property {string[]} permissions - List of permissions assigned to the user.
+ * @property {boolean} enabled - Indicates if the user account is enabled.
+ * @property {boolean} locked - Indicates if the user account is locked.
+ * @property {boolean} superuser - Indicates if the user has superuser privileges.
+ * @property {Date} createdAt - Timestamp when the user profile was created.
+ * @property {Date} updatedAt - Timestamp when the user profile was last updated.
+ */
 export interface IProfile {
   id: number;
   email: string;
@@ -61,4 +75,13 @@ export interface IProfile {
   superuser: boolean;
   createdAt: Date;
   updatedAt: Date;
+}
+
+/**
+ * Represents the form data required to send a reset password email.
+ *
+ * @property email - The email address of the user requesting a password reset.
+ */
+export interface ISendResetPasswordEmailForm {
+  email: string;
 }

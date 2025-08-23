@@ -1,38 +1,39 @@
 'use client';
-import { IResendVerificationEmailForm } from '@/types';
+import { useNotification } from '@/context/NotificationProvider';
+import { ISendResetPasswordEmailForm } from '@/types';
 import { LoginOutlined, MailOutlined, SendOutlined } from '@ant-design/icons';
-import { Button, Card, Divider, Form, Typography } from 'antd';
-import Input from 'antd/es/input/Input';
+import { Button, Card, Divider, Form, Input, Typography } from 'antd';
 import Title from 'antd/es/typography/Title';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { sendVerificationEmailAction } from './action';
-import { useNotification } from '@/context/NotificationProvider';
+import { sendResetPasswordEmailAction } from './action';
 
-export default function ResendVerificationEmailPage() {
+export default function SendResetPasswordEmailPage() {
   const router = useRouter();
   const { notifySuccess, notifyError } = useNotification();
   const [loading, setLoading] = useState<boolean>(false);
-  const t = useTranslations('ResendVerificationEmailPage');
-  const [form] = Form.useForm<IResendVerificationEmailForm>();
+  const t = useTranslations('SendResetPasswordEmailPage');
+  const [form] = Form.useForm<ISendResetPasswordEmailForm>();
 
   /**
-   * Handles sending a verification email by invoking the sendVerificationEmailAction with the provided form data.
-   * Displays a success notification if the email is sent successfully, otherwise shows an error notification.
-   * Manages the loading state during the process.
+   * Handles the process of sending a reset password email.
    *
-   * @param form - The form data required to resend the verification email.
+   * Sets the loading state, calls the action to send the reset password email,
+   * and provides user feedback based on the result. On success, notifies the user
+   * and redirects to the sign-in page; on failure, shows an error notification.
+   *
+   * @param form - The form data containing the user's email for password reset.
    */
-  const handleSendEmail = async (form: IResendVerificationEmailForm) => {
+  const handleSendEmail = async (form: ISendResetPasswordEmailForm) => {
     setLoading(true);
 
-    const data = await sendVerificationEmailAction(form);
+    const data = await sendResetPasswordEmailAction(form);
     if (data.success) {
-      notifySuccess(t('sendVerificationEmailSuccess'));
+      notifySuccess(t('sendResetPasswordEmailSuccess'));
       router.push('/sign-in');
     } else {
-      notifyError(t('sendVerificationEmailError'));
+      notifyError(t('sendResetPasswordEmailError'));
     }
 
     setLoading(false);
@@ -51,7 +52,7 @@ export default function ResendVerificationEmailPage() {
       </Typography>
 
       <Form
-        name="form_resend_verification_email"
+        name="form_send_reset_password_email"
         form={form}
         layout="vertical"
         onFinish={handleSendEmail}

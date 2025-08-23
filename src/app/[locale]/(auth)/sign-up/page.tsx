@@ -47,7 +47,7 @@ export default function SignUpPage() {
       if (data2.success) {
         notifySuccess(t('sendVerificationEmailSuccess'));
       } else {
-        notifyError(t('sendVerificationEmailSuccessError'));
+        notifyError(t('sendVerificationEmailError'));
       }
 
       router.push('/sign-in');

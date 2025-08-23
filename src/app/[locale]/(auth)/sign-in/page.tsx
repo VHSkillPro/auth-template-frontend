@@ -129,7 +129,7 @@ export default function SignInPage() {
             type="link"
             size="small"
             disabled={loading}
-            onClick={() => router.push('/forgot-password')}
+            onClick={() => router.push('/send-reset-password-email')}
             style={{ marginTop: '6px' }}
           >
             {t('forgotPassword')}

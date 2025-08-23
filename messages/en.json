@@ -33,7 +33,7 @@
     "emailExisted": "Email already exists",
     "signUpSuccess": "Sign up successfully!",
     "sendVerificationEmailSuccess": "Verification email sent successfully!",
-    "sendVerificationEmailSuccessError": "Failed to send verification email.",
+    "sendVerificationEmailError": "Failed to send verification email.",
     "resendVerificationEmailButton": "Re-send verification email",
     "emailLabel": "Email",
     "passwordLabel": "Password",
@@ -49,7 +49,7 @@
     "sendEmailButton": "Send",
     "signInButton": "Back to Sign In",
     "sendVerificationEmailSuccess": "Verification email sent successfully!",
-    "sendVerificationEmailSuccessError": "Failed to send verification email.",
+    "sendVerificationEmailError": "Failed to send verification email.",
     "emailLabel": "Email"
   },
   "VerifyEmailPage": {
@@ -57,6 +57,17 @@
     "loading": "Verifying...",
     "emailVerified": "Your email has been verified successfully!",
     "emailNotVerified": "Email verification failed or the token has expired."
+  },
+  "SendResetPasswordEmailPage": {
+    "title": "Reset Password",
+    "emailLabel": "Email",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Invalid email address",
+    "emailPlaceholder": "Enter your email",
+    "sendEmailButton": "Send",
+    "signInButton": "Back to Sign In",
+    "sendResetPasswordEmailSuccess": "Reset password email sent successfully!",
+    "sendResetPasswordEmailError": "Failed to send reset password email."
   },
   "NotFoundPage": {
     "title": "Page Not Found",
