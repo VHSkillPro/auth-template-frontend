@@ -69,6 +69,20 @@
     "sendResetPasswordEmailSuccess": "Gửi email đặt lại mật khẩu thành công!",
     "sendResetPasswordEmailError": "Gửi email đặt lại mật khẩu thất bại."
   },
+  "ResetPasswordPage": {
+    "title": "Đặt lại mật khẩu",
+    "passwordPlaceholder": "Nhập mật khẩu của bạn",
+    "passwordRequired": "Vui lòng nhập mật khẩu",
+    "passwordInvalid": "Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt",
+    "repasswordPlaceholder": "Nhập lại mật khẩu của bạn",
+    "repasswordRequired": "Vui lòng nhập lại mật khẩu",
+    "repasswordInvalid": "Mật khẩu không khớp",
+    "passwordLabel": "Mật khẩu",
+    "repasswordLabel": "Nhập lại mật khẩu",
+    "resetPasswordButton": "Đặt lại mật khẩu",
+    "resetPasswordSuccess": "Đặt lại mật khẩu thành công!",
+    "resetPasswordError": "Đặt lại mật khẩu thất bại."
+  },
   "NotFoundPage": {
     "title": "Không tìm thấy trang",
     "subTitle": "Xin lỗi, trang bạn đã truy cập không tồn tại."

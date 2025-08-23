@@ -85,3 +85,15 @@ export interface IProfile {
 export interface ISendResetPasswordEmailForm {
   email: string;
 }
+
+/**
+ * Represents the form data required to reset a user's password.
+ *
+ * @property password - The new password to be set.
+ * @property repassword - Confirmation of the new password.
+ */
+export interface IResetPasswordForm {
+  token: string;
+  password: string;
+  repassword: string;
+}

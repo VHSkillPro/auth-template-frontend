@@ -69,6 +69,20 @@
     "sendResetPasswordEmailSuccess": "Reset password email sent successfully!",
     "sendResetPasswordEmailError": "Failed to send reset password email."
   },
+  "ResetPasswordPage": {
+    "title": "Reset Password",
+    "passwordPlaceholder": "Enter your password",
+    "passwordRequired": "Password is required",
+    "passwordInvalid": "Password must be at least 8 characters long, including uppercase, lowercase, numbers, and special characters",
+    "repasswordPlaceholder": "Re-enter your password",
+    "repasswordRequired": "Re-entering password is required",
+    "repasswordInvalid": "Passwords do not match",
+    "passwordLabel": "Password",
+    "repasswordLabel": "Re-enter Password",
+    "resetPasswordButton": "Reset Password",
+    "resetPasswordSuccess": "Reset Password successfully!",
+    "resetPasswordError": "Reset Password failed."
+  },
   "NotFoundPage": {
     "title": "Page Not Found",
     "subTitle": "Sorry, the page you visited does not exist."

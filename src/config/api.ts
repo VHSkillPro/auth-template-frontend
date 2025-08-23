@@ -7,6 +7,7 @@ const API = {
     VERIFY_EMAIL: '/api/v1/auth/verify-email',
     GET_PROFILE: '/api/v1/auth/profile',
     REFRESH: '/api/v1/auth/refresh',
+    RESET_PASSWORD: '/api/v1/auth/reset-password',
   },
 };
 
