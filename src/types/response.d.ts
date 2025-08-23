@@ -20,3 +20,13 @@ export interface IApiResponse {
 export interface IDataApiResponse<T> extends IApiResponse {
   data: T;
 }
+
+/**
+ * Represents the structure of errors returned in a bad request response.
+ *
+ * @property errors - An object where each key is the name of a field or parameter,
+ * and the value is the corresponding error message.
+ */
+export interface IBadRequestErrors {
+  errors: Record<string, string>;
+}
