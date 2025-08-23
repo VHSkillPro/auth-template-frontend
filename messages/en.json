@@ -13,6 +13,28 @@
     "signInSuccess": "Sign in successfully!",
     "emailOrPasswordInvalid": "Email or password is invalid"
   },
+  "SignUpPage": {
+    "title": "Sign Up",
+    "emailPlaceholder": "Enter your email",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Invalid email address",
+    "passwordPlaceholder": "Enter your password",
+    "passwordRequired": "Password is required",
+    "passwordInvalid": "Password must be at least 8 characters long, including uppercase, lowercase, numbers, and special characters",
+    "repasswordPlaceholder": "Re-enter your password",
+    "repasswordRequired": "Re-entering password is required",
+    "repasswordInvalid": "Passwords do not match",
+    "firstNamePlaceholder": "Enter your first name",
+    "lastNamePlaceholder": "Enter your last name",
+    "firstNameRequired": "First name is required",
+    "lastNameRequired": "Last name is required",
+    "signUpButton": "Sign Up",
+    "signInButton": "Back to Sign In",
+    "emailExisted": "Email already exists",
+    "signUpSuccess": "Sign up successfully!",
+    "sendVerificationEmailSuccess": "Verification email sent successfully!",
+    "sendVerificationEmailSuccessError": "Failed to send verification email."
+  },
   "NotFoundPage": {
     "title": "Page Not Found",
     "subTitle": "Sorry, the page you visited does not exist."
