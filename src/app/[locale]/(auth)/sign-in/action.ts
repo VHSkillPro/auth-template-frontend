@@ -1,5 +1,6 @@
 'use server';
 
+import API from '@/config/api';
 import { api } from '@/lib/api-client';
 import { saveToken } from '@/lib/cookie';
 import { IDataApiResponse, ISignInForm, IToken } from '@/types';
@@ -14,7 +15,7 @@ import { cookies } from 'next/headers';
  */
 export const signInAction = async (signInForm: ISignInForm) => {
   const data = await api.post<IDataApiResponse<IToken>>(
-    '/api/v1/auth/sign-in',
+    API.AUTH.SIGNIN,
     signInForm
   );
 
