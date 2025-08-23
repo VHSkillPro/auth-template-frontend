@@ -27,6 +27,15 @@ export interface ISignUpForm {
 }
 
 /**
+ * Represents the payload required to resend a verification email.
+ *
+ * @property email - The email address to which the verification email should be sent.
+ */
+export interface IResendVerificationEmailForm {
+  email: string;
+}
+
+/**
  * Represents authentication tokens and their expiration details.
  *
  * @property accessToken - The JWT access token used for authentication.

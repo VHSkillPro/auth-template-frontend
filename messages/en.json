@@ -33,7 +33,24 @@
     "emailExisted": "Email already exists",
     "signUpSuccess": "Sign up successfully!",
     "sendVerificationEmailSuccess": "Verification email sent successfully!",
-    "sendVerificationEmailSuccessError": "Failed to send verification email."
+    "sendVerificationEmailSuccessError": "Failed to send verification email.",
+    "resendVerificationEmailButton": "Re-send verification email",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "repasswordLabel": "Re-enter Password",
+    "firstNameLabel": "First Name",
+    "lastNameLabel": "Last Name"
+  },
+  "ResendVerificationEmailPage": {
+    "title": "Resend Verification Email",
+    "emailPlaceholder": "Enter your email",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Invalid email address",
+    "sendEmailButton": "Send",
+    "signInButton": "Back to Sign In",
+    "sendVerificationEmailSuccess": "Verification email sent successfully!",
+    "sendVerificationEmailSuccessError": "Failed to send verification email.",
+    "emailLabel": "Email"
   },
   "NotFoundPage": {
     "title": "Page Not Found",

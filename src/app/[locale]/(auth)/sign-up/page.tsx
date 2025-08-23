@@ -1,11 +1,12 @@
 'use client';
-import { ISignUpForm } from '@/types';
+import { IResendVerificationEmailForm, ISignUpForm } from '@/types';
 import {
   IdcardOutlined,
   LockOutlined,
   LoginOutlined,
+  MailOutlined,
+  SafetyOutlined,
   UserAddOutlined,
-  UserOutlined,
 } from '@ant-design/icons';
 import { Button, Card, Col, Divider, Form, Row, Typography } from 'antd';
 import FormItem from 'antd/es/form/FormItem';
@@ -15,8 +16,9 @@ import Title from 'antd/es/typography/Title';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { sendVerificationEmailAction, signUpAction } from './action';
+import { signUpAction } from './action';
 import { useNotification } from '@/context/NotificationProvider';
+import { sendVerificationEmailAction } from '../resend-verification-email/action';
 
 export default function SignUpPage() {
   const router = useRouter();
@@ -39,7 +41,9 @@ export default function SignUpPage() {
       notifySuccess(t('signUpSuccess'));
 
       // Send verification email
-      const data2 = await sendVerificationEmailAction(signUpForm.email);
+      const data2 = await sendVerificationEmailAction({
+        email: signUpForm.email,
+      } as IResendVerificationEmailForm);
       if (data2.success) {
         notifySuccess(t('sendVerificationEmailSuccess'));
       } else {
@@ -82,6 +86,7 @@ export default function SignUpPage() {
         {/* Email */}
         <FormItem
           name="email"
+          label={t('emailLabel')}
           rules={[
             { required: true, message: '- ' + t('emailRequired') },
             { type: 'email', message: '- ' + t('emailInvalid') },
@@ -89,7 +94,7 @@ export default function SignUpPage() {
         >
           <Input
             style={{ marginBottom: '6px' }}
-            prefix={<UserOutlined style={{ margin: '0 6px' }} />}
+            prefix={<MailOutlined style={{ margin: '0 6px' }} />}
             placeholder={t('emailPlaceholder')}
             size="large"
             disabled={loading}
@@ -102,12 +107,13 @@ export default function SignUpPage() {
             {/* firstName */}
             <FormItem
               name="firstName"
+              label={t('firstNameLabel')}
               rules={[
                 { required: true, message: '- ' + t('firstNameRequired') },
               ]}
             >
               <Input
-                style={{ margin: '6px 0' }}
+                style={{ marginBottom: '6px' }}
                 prefix={<IdcardOutlined style={{ margin: '0 6px' }} />}
                 placeholder={t('firstNamePlaceholder')}
                 size="large"
@@ -119,13 +125,14 @@ export default function SignUpPage() {
             {/* lastName */}
             <FormItem
               name="lastName"
+              label={t('lastNameLabel')}
               rules={[
                 { required: true, message: '- ' + t('lastNameRequired') },
               ]}
             >
               <Input
                 size="large"
-                style={{ margin: '6px 0' }}
+                style={{ marginBottom: '6px' }}
                 prefix={<IdcardOutlined style={{ margin: '0 6px' }} />}
                 placeholder={t('lastNamePlaceholder')}
                 disabled={loading}
@@ -137,6 +144,7 @@ export default function SignUpPage() {
         {/* Password */}
         <FormItem
           name="password"
+          label={t('passwordLabel')}
           rules={[
             { required: true, message: '- ' + t('passwordRequired') },
             {
@@ -147,7 +155,7 @@ export default function SignUpPage() {
           ]}
         >
           <Password
-            style={{ margin: '6px 0' }}
+            style={{ marginBottom: '6px' }}
             prefix={<LockOutlined style={{ margin: '0 6px' }} />}
             placeholder={t('passwordPlaceholder')}
             size="large"
@@ -158,6 +166,7 @@ export default function SignUpPage() {
         {/* Re-enter Password */}
         <FormItem
           name="repassword"
+          label={t('repasswordLabel')}
           rules={[
             { required: true, message: '- ' + t('repasswordRequired') },
             {
@@ -176,7 +185,7 @@ export default function SignUpPage() {
           ]}
         >
           <Password
-            style={{ margin: '6px 0' }}
+            style={{ marginBottom: '6px' }}
             prefix={<LockOutlined style={{ margin: '0 6px' }} />}
             placeholder={t('repasswordPlaceholder')}
             size="large"
@@ -194,6 +203,17 @@ export default function SignUpPage() {
           style={{ marginTop: '12px' }}
         >
           {t('signUpButton')}
+        </Button>
+
+        <Button
+          block
+          size="large"
+          icon={<SafetyOutlined />}
+          disabled={loading}
+          onClick={() => router.push('/resend-verification-email')}
+          style={{ marginTop: '12px' }}
+        >
+          {t('resendVerificationEmailButton')}
         </Button>
 
         <Button

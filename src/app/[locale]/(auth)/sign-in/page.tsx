@@ -7,8 +7,8 @@ import Input from 'antd/es/input/Input';
 import {
   LockOutlined,
   LoginOutlined,
+  MailOutlined,
   UserAddOutlined,
-  UserOutlined,
 } from '@ant-design/icons';
 import { useTranslations } from 'next-intl';
 import Password from 'antd/es/input/Password';
@@ -75,7 +75,7 @@ export default function SignInPage() {
         >
           <Input
             style={{ marginBottom: '6px' }}
-            prefix={<UserOutlined style={{ margin: '0 6px' }} />}
+            prefix={<MailOutlined style={{ margin: '0 6px' }} />}
             placeholder={t('emailPlaceholder')}
             size="large"
             disabled={loading}

@@ -33,7 +33,24 @@
     "emailExisted": "Email đã tồn tại",
     "signUpSuccess": "Đăng ký thành công!",
     "sendVerificationEmailSuccess": "Gửi email xác minh thành công!",
-    "sendVerificationEmailSuccessError": "Gửi email xác minh thất bại."
+    "sendVerificationEmailSuccessError": "Gửi email xác minh thất bại.",
+    "resendVerificationEmailButton": "Gửi lại email xác minh",
+    "emailLabel": "Email",
+    "passwordLabel": "Mật khẩu",
+    "repasswordLabel": "Nhập lại mật khẩu",
+    "firstNameLabel": "Tên",
+    "lastNameLabel": "Họ"
+  },
+  "ResendVerificationEmailPage": {
+    "title": "Gửi lại email xác minh",
+    "emailPlaceholder": "Nhập email của bạn",
+    "emailRequired": "Vui lòng nhập email",
+    "emailInvalid": "Địa chỉ email không hợp lệ",
+    "sendEmailButton": "Gửi",
+    "signInButton": "Quay lại đăng nhập",
+    "sendVerificationEmailSuccess": "Gửi email xác minh thành công!",
+    "sendVerificationEmailSuccessError": "Gửi email xác minh thất bại.",
+    "emailLabel": "Email"
   },
   "NotFoundPage": {
     "title": "Không tìm thấy trang",
