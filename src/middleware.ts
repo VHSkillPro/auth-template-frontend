@@ -58,7 +58,12 @@ export const config = {
 export default async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   let currentLocale = request.nextUrl.pathname.split('/')[1];
-  if (currentLocale && !routing.locales.find((loc) => loc === currentLocale)) {
+  if (
+    currentLocale === null ||
+    currentLocale === undefined ||
+    currentLocale === '' ||
+    !routing.locales.find((loc) => loc === currentLocale)
+  ) {
     currentLocale = routing.defaultLocale;
   }
 
