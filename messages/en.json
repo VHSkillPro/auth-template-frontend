@@ -13,9 +13,83 @@
     "signInSuccess": "Sign in successfully!",
     "emailOrPasswordInvalid": "Email or password is invalid"
   },
+  "SignUpPage": {
+    "title": "Sign Up",
+    "emailPlaceholder": "Enter your email",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Invalid email address",
+    "passwordPlaceholder": "Enter your password",
+    "passwordRequired": "Password is required",
+    "passwordInvalid": "Password must be at least 8 characters long, including uppercase, lowercase, numbers, and special characters",
+    "repasswordPlaceholder": "Re-enter your password",
+    "repasswordRequired": "Re-entering password is required",
+    "repasswordInvalid": "Passwords do not match",
+    "firstNamePlaceholder": "Enter your first name",
+    "lastNamePlaceholder": "Enter your last name",
+    "firstNameRequired": "First name is required",
+    "lastNameRequired": "Last name is required",
+    "signUpButton": "Sign Up",
+    "signInButton": "Back to Sign In",
+    "emailExisted": "Email already exists",
+    "signUpSuccess": "Sign up successfully!",
+    "sendVerificationEmailSuccess": "Verification email sent successfully!",
+    "sendVerificationEmailError": "Failed to send verification email.",
+    "resendVerificationEmailButton": "Re-send verification email",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "repasswordLabel": "Re-enter Password",
+    "firstNameLabel": "First Name",
+    "lastNameLabel": "Last Name"
+  },
+  "ResendVerificationEmailPage": {
+    "title": "Resend Verification Email",
+    "emailPlaceholder": "Enter your email",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Invalid email address",
+    "sendEmailButton": "Send",
+    "signInButton": "Back to Sign In",
+    "sendVerificationEmailSuccess": "Verification email sent successfully!",
+    "sendVerificationEmailError": "Failed to send verification email.",
+    "emailLabel": "Email"
+  },
+  "VerifyEmailPage": {
+    "title": "Verify Your Email",
+    "loading": "Verifying...",
+    "emailVerified": "Your email has been verified successfully!",
+    "emailNotVerified": "Email verification failed or the token has expired."
+  },
+  "SendResetPasswordEmailPage": {
+    "title": "Reset Password",
+    "emailLabel": "Email",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Invalid email address",
+    "emailPlaceholder": "Enter your email",
+    "sendEmailButton": "Send",
+    "signInButton": "Back to Sign In",
+    "sendResetPasswordEmailSuccess": "Reset password email sent successfully!",
+    "sendResetPasswordEmailError": "Failed to send reset password email."
+  },
+  "ResetPasswordPage": {
+    "title": "Reset Password",
+    "passwordPlaceholder": "Enter your password",
+    "passwordRequired": "Password is required",
+    "passwordInvalid": "Password must be at least 8 characters long, including uppercase, lowercase, numbers, and special characters",
+    "repasswordPlaceholder": "Re-enter your password",
+    "repasswordRequired": "Re-entering password is required",
+    "repasswordInvalid": "Passwords do not match",
+    "passwordLabel": "Password",
+    "repasswordLabel": "Re-enter Password",
+    "resetPasswordButton": "Reset Password",
+    "resetPasswordSuccess": "Reset Password successfully!",
+    "resetPasswordError": "Reset Password failed."
+  },
   "NotFoundPage": {
     "title": "Page Not Found",
     "subTitle": "Sorry, the page you visited does not exist."
+  },
+  "InternalServerErrorPage": {
+    "title": "Internal Server Error",
+    "subTitle": "Sorry, something went wrong on our end."
   },
   "Common": {
     "serverError": "Internal server error"

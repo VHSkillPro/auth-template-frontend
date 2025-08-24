@@ -13,9 +13,83 @@
     "signInSuccess": "Đăng nhập thành công!",
     "emailOrPasswordInvalid": "Email hoặc mật khẩu không hợp lệ"
   },
+  "SignUpPage": {
+    "title": "Đăng ký",
+    "emailPlaceholder": "Nhập email của bạn",
+    "emailRequired": "Vui lòng nhập email",
+    "emailInvalid": "Địa chỉ email không hợp lệ",
+    "passwordPlaceholder": "Nhập mật khẩu của bạn",
+    "passwordRequired": "Vui lòng nhập mật khẩu",
+    "passwordInvalid": "Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt",
+    "repasswordPlaceholder": "Nhập lại mật khẩu của bạn",
+    "repasswordRequired": "Vui lòng nhập lại mật khẩu",
+    "repasswordInvalid": "Mật khẩu không khớp",
+    "firstNamePlaceholder": "Nhập tên của bạn",
+    "lastNamePlaceholder": "Nhập họ của bạn",
+    "firstNameRequired": "Vui lòng nhập tên của bạn",
+    "lastNameRequired": "Vui lòng nhập họ của bạn",
+    "signUpButton": "Đăng ký",
+    "signInButton": "Quay lại đăng nhập",
+    "emailExisted": "Email đã tồn tại",
+    "signUpSuccess": "Đăng ký thành công!",
+    "sendVerificationEmailSuccess": "Gửi email xác minh thành công!",
+    "sendVerificationEmailError": "Gửi email xác minh thất bại.",
+    "resendVerificationEmailButton": "Gửi lại email xác minh",
+    "emailLabel": "Email",
+    "passwordLabel": "Mật khẩu",
+    "repasswordLabel": "Nhập lại mật khẩu",
+    "firstNameLabel": "Tên",
+    "lastNameLabel": "Họ"
+  },
+  "ResendVerificationEmailPage": {
+    "title": "Gửi lại email xác minh",
+    "emailPlaceholder": "Nhập email của bạn",
+    "emailRequired": "Vui lòng nhập email",
+    "emailInvalid": "Địa chỉ email không hợp lệ",
+    "sendEmailButton": "Gửi",
+    "signInButton": "Quay lại đăng nhập",
+    "sendVerificationEmailSuccess": "Gửi email xác minh thành công!",
+    "sendVerificationEmailError": "Gửi email xác minh thất bại.",
+    "emailLabel": "Email"
+  },
+  "VerifyEmailPage": {
+    "title": "Xác minh email của bạn",
+    "loading": "Đang xác minh...",
+    "emailVerified": "Email của bạn đã được xác minh thành công!",
+    "emailNotVerified": "Xác minh email không thành công hoặc mã thông báo đã hết hạn."
+  },
+  "SendResetPasswordEmailPage": {
+    "title": "Đặt lại mật khẩu",
+    "emailLabel": "Email",
+    "emailRequired": "Vui lòng nhập email",
+    "emailInvalid": "Địa chỉ email không hợp lệ",
+    "emailPlaceholder": "Nhập email của bạn",
+    "sendEmailButton": "Gửi",
+    "signInButton": "Quay lại đăng nhập",
+    "sendResetPasswordEmailSuccess": "Gửi email đặt lại mật khẩu thành công!",
+    "sendResetPasswordEmailError": "Gửi email đặt lại mật khẩu thất bại."
+  },
+  "ResetPasswordPage": {
+    "title": "Đặt lại mật khẩu",
+    "passwordPlaceholder": "Nhập mật khẩu của bạn",
+    "passwordRequired": "Vui lòng nhập mật khẩu",
+    "passwordInvalid": "Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt",
+    "repasswordPlaceholder": "Nhập lại mật khẩu của bạn",
+    "repasswordRequired": "Vui lòng nhập lại mật khẩu",
+    "repasswordInvalid": "Mật khẩu không khớp",
+    "passwordLabel": "Mật khẩu",
+    "repasswordLabel": "Nhập lại mật khẩu",
+    "resetPasswordButton": "Đặt lại mật khẩu",
+    "resetPasswordSuccess": "Đặt lại mật khẩu thành công!",
+    "resetPasswordError": "Đặt lại mật khẩu thất bại."
+  },
   "NotFoundPage": {
     "title": "Không tìm thấy trang",
     "subTitle": "Xin lỗi, trang bạn đã truy cập không tồn tại."
+  },
+  "InternalServerErrorPage": {
+    "title": "Lỗi máy chủ nội bộ",
+    "subTitle": "Xin lỗi, đã xảy ra sự cố trên máy chủ của chúng tôi."
   },
   "Common": {
     "serverError": "Lỗi máy chủ nội bộ"

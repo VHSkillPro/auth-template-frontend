@@ -2,7 +2,7 @@
 import { flagsPath, routing } from '@/i18n/routing';
 import { Avatar, FloatButton } from 'antd';
 import FloatButtonGroup from 'antd/es/float-button/FloatButtonGroup';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useTransition } from 'react';
 
 export default function LocaleSwitcher({
@@ -12,6 +12,7 @@ export default function LocaleSwitcher({
 }) {
   const router = useRouter();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [, startTransition] = useTransition();
 
   /**
@@ -25,10 +26,9 @@ export default function LocaleSwitcher({
     }
 
     startTransition(() => {
-      const newPath = `/${newLocale}${pathname.substring(
-        pathname.indexOf('/', 1)
-      )}`;
-      router.replace(newPath);
+      const segments = pathname.split('/');
+      segments[1] = newLocale;
+      router.replace(segments.join('/') + '?' + searchParams.toString());
     });
   };
 
