@@ -97,3 +97,12 @@ export interface IResetPasswordForm {
   password: string;
   repassword: string;
 }
+
+/**
+ * Represents an object containing the URL of a user's avatar image.
+ *
+ * @property avatarUrl - The URL string pointing to the user's avatar image.
+ */
+export interface IAvatarURL {
+  avatarUrl: string;
+}

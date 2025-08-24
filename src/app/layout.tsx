@@ -5,6 +5,7 @@ import { App, ConfigProvider } from 'antd';
 import './globals.css';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import NotificationProvider from '@/context/NotificationProvider';
+import { AuthProvider } from '@/context/AuthProvider';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -34,7 +35,9 @@ export default function RootLayout({
         <AntdRegistry>
           <ConfigProvider theme={antdTheme}>
             <App>
-              <NotificationProvider>{children}</NotificationProvider>
+              <NotificationProvider>
+                <AuthProvider>{children}</AuthProvider>
+              </NotificationProvider>
             </App>
           </ConfigProvider>
         </AntdRegistry>

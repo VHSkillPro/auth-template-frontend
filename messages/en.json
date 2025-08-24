@@ -87,11 +87,18 @@
     "title": "Page Not Found",
     "subTitle": "Sorry, the page you visited does not exist."
   },
+  "ProfileDropdown": {
+    "myAccount": "My account",
+    "signOut": "Sign out"
+  },
   "InternalServerErrorPage": {
     "title": "Internal Server Error",
     "subTitle": "Sorry, something went wrong on our end."
   },
   "Common": {
-    "serverError": "Internal server error"
+    "serverError": "Internal server error",
+    "unauthorized": "Unauthorized",
+    "signOutSuccess": "Signed out successfully!",
+    "signOutError": "Sign out failed."
   }
 }

@@ -8,6 +8,7 @@ import {
 } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, MenuProps, theme } from 'antd';
 import { ReactNode, useState } from 'react';
+import ProfileDropdown from './_component/ProfileDropdown';
 const { Header, Content, Footer, Sider } = Layout;
 
 type MenuItem = Required<MenuProps>['items'][number];
@@ -63,7 +64,16 @@ export default function MainLayout({ children }: { children: ReactNode }) {
         />
       </Sider>
       <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }} />
+        <Header
+          style={{
+            paddingRight: 16,
+            background: colorBgContainer,
+            display: 'flex',
+            justifyContent: 'flex-end',
+          }}
+        >
+          <ProfileDropdown />
+        </Header>
         <Content style={{ margin: '0 16px' }}>
           <Breadcrumb
             style={{ margin: '16px 0' }}

@@ -12,11 +12,13 @@ import {
 } from '@ant-design/icons';
 import { useTranslations } from 'next-intl';
 import Password from 'antd/es/input/Password';
-import { ISignInForm } from '@/types';
+import { IDataApiResponse, IProfile, ISignInForm } from '@/types';
 import { signInAction } from './action';
 import { useNotification } from '@/context/NotificationProvider';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { useAuth } from '@/context/AuthProvider';
+import { getProfileAction } from '../action';
 
 export default function SignInPage() {
   const [loading, setLoading] = useState<boolean>(false);
@@ -25,6 +27,7 @@ export default function SignInPage() {
   const tCommon = useTranslations('Common');
   const [form] = Form.useForm<ISignInForm>();
   const router = useRouter();
+  const { signIn } = useAuth();
 
   /**
    * Handles the sign-in process by submitting the sign-in form data.
@@ -37,6 +40,8 @@ export default function SignInPage() {
     const data = await signInAction(signInForm);
     if (data.success) {
       notifySuccess(t('signInSuccess'));
+      const profileData = await getProfileAction();
+      signIn((profileData as IDataApiResponse<IProfile>).data);
       router.push('/');
     } else if (data.statusCode === 401) {
       notifyError(t('emailOrPasswordInvalid'));

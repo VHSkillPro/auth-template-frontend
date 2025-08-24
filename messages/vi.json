@@ -87,11 +87,18 @@
     "title": "Không tìm thấy trang",
     "subTitle": "Xin lỗi, trang bạn đã truy cập không tồn tại."
   },
+  "ProfileDropdown": {
+    "myAccount": "Tài khoản của tôi",
+    "signOut": "Đăng xuất"
+  },
   "InternalServerErrorPage": {
     "title": "Lỗi máy chủ nội bộ",
     "subTitle": "Xin lỗi, đã xảy ra sự cố trên máy chủ của chúng tôi."
   },
   "Common": {
-    "serverError": "Lỗi máy chủ nội bộ"
+    "serverError": "Lỗi máy chủ nội bộ",
+    "unauthorized": "Xác thực không thành công",
+    "signOutSuccess": "Đăng xuất thành công!",
+    "signOutError": "Đăng xuất thất bại."
   }
 }
