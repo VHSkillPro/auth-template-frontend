@@ -24,7 +24,7 @@ export default function SignInPage() {
   const [loading, setLoading] = useState<boolean>(false);
   const { notifySuccess, notifyError } = useNotification();
   const t = useTranslations('SignInPage');
-  const tCommon = useTranslations('Common');
+  const tResponseMessage = useTranslations('ResponseMessage');
   const [form] = Form.useForm<ISignInForm>();
   const router = useRouter();
   const { signIn } = useAuth();
@@ -39,14 +39,12 @@ export default function SignInPage() {
 
     const data = await signInAction(signInForm);
     if (data.success) {
-      notifySuccess(t('signInSuccess'));
+      notifySuccess(tResponseMessage(data.message));
       const profileData = await getProfileAction();
       signIn((profileData as IDataApiResponse<IProfile>).data);
       router.push('/');
-    } else if (data.statusCode === 401) {
-      notifyError(t('emailOrPasswordInvalid'));
     } else {
-      notifyError(tCommon('serverError'));
+      notifyError(tResponseMessage(data.message));
     }
 
     setLoading(false);
@@ -60,8 +58,10 @@ export default function SignInPage() {
       }}
     >
       <Typography style={{ textAlign: 'center' }}>
-        <Title level={2}>{t('title')}</Title>
-        <Paragraph type="secondary">{t('welcome')}</Paragraph>
+        <Title>{t('title')}</Title>
+        <Paragraph type="secondary" style={{ marginTop: '-16px' }}>
+          {t('welcome')}
+        </Paragraph>
         <Divider />
       </Typography>
 

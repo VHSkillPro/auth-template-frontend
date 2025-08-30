@@ -100,5 +100,13 @@
     "unauthorized": "Unauthorized",
     "signOutSuccess": "Signed out successfully!",
     "signOutError": "Sign out failed."
+  },
+  "ResponseMessage": {
+    "SIGN_IN_SUCCESS": "Sign in successfully",
+    "BAD_REQUEST": "Bad request",
+    "EMAIL_OR_PASSWORD_INVALID": "Email or password is invalid",
+    "USER_NOT_ENABLED": "User is not enabled",
+    "USER_LOCKED": "User is locked",
+    "INTERNAL_SERVER_ERROR": "Internal server error"
   }
 }
