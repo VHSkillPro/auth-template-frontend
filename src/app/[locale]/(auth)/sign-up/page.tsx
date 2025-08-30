@@ -1,5 +1,10 @@
 'use client';
-import { IResendVerificationEmailForm, ISignUpForm } from '@/types';
+import {
+  IBadRequestErrors,
+  IDataApiResponse,
+  IResendVerificationEmailForm,
+  ISignUpForm,
+} from '@/types';
 import {
   IdcardOutlined,
   LockOutlined,
@@ -18,11 +23,12 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { signUpAction } from './action';
 import { useNotification } from '@/context/NotificationProvider';
-import { sendVerificationEmailAction } from '../resend-verification-email/action';
+import { sendVerificationEmailAction } from '../send-verification-email/action';
 
 export default function SignUpPage() {
   const router = useRouter();
   const t = useTranslations('SignUpPage');
+  const tResponseMessage = useTranslations('ResponseMessage');
   const [form] = Form.useForm<ISignUpForm>();
   const { notifySuccess, notifyError } = useNotification();
   const [loading, setLoading] = useState<boolean>(false);
@@ -38,28 +44,33 @@ export default function SignUpPage() {
     // Sign up
     const data = await signUpAction(signUpForm);
     if (data.success) {
-      notifySuccess(t('signUpSuccess'));
+      notifySuccess(tResponseMessage(data.message));
 
       // Send verification email
       const data2 = await sendVerificationEmailAction({
         email: signUpForm.email,
       } as IResendVerificationEmailForm);
       if (data2.success) {
-        notifySuccess(t('sendVerificationEmailSuccess'));
+        notifySuccess(tResponseMessage(data2.message));
       } else {
-        notifyError(t('sendVerificationEmailError'));
+        notifyError(tResponseMessage(data2.message));
       }
 
       router.push('/sign-in');
     } else if (data.statusCode === 400) {
-      form.setFields([
-        {
-          name: 'email',
-          errors: ['- ' + t('emailExisted')],
-        },
-      ]);
+      const errors = (data as IDataApiResponse<IBadRequestErrors>).data.errors;
+      for (const error in errors) {
+        form.setFields([
+          {
+            name: error as keyof ISignUpForm,
+            errors: errors[error]
+              .split(';')
+              .map((msgCode) => '- ' + tResponseMessage(msgCode)),
+          },
+        ]);
+      }
     } else {
-      notifyError(t('Common.serverError'));
+      notifyError(tResponseMessage(data.message));
     }
 
     setLoading(false);
@@ -73,7 +84,7 @@ export default function SignUpPage() {
       }}
     >
       <Typography style={{ textAlign: 'center' }}>
-        <Title level={2}>{t('title')}</Title>
+        <Title>{t('title')}</Title>
         <Divider />
       </Typography>
 
@@ -210,10 +221,10 @@ export default function SignUpPage() {
           size="large"
           icon={<SafetyOutlined />}
           disabled={loading}
-          onClick={() => router.push('/resend-verification-email')}
+          onClick={() => router.push('/send-verification-email')}
           style={{ marginTop: '12px' }}
         >
-          {t('resendVerificationEmailButton')}
+          {t('sendVerificationEmailButton')}
         </Button>
 
         <Button

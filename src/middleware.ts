@@ -13,7 +13,7 @@ const PUBLIC_URLS = [
   '/sign-in',
   '/sign-up',
   '/verify-email',
-  '/resend-verification-email',
+  '/send-verification-email',
   '/reset-password',
   '/send-reset-password-email',
 ];

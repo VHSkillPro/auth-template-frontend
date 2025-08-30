@@ -9,9 +9,7 @@
     "passwordRequired": "Vui lòng nhập mật khẩu",
     "signInButton": "Đăng nhập",
     "signUpButton": "Đăng ký",
-    "forgotPassword": "Quên mật khẩu?",
-    "signInSuccess": "Đăng nhập thành công!",
-    "emailOrPasswordInvalid": "Email hoặc mật khẩu không hợp lệ"
+    "forgotPassword": "Quên mật khẩu?"
   },
   "SignUpPage": {
     "title": "Đăng ký",
@@ -31,10 +29,7 @@
     "signUpButton": "Đăng ký",
     "signInButton": "Quay lại đăng nhập",
     "emailExisted": "Email đã tồn tại",
-    "signUpSuccess": "Đăng ký thành công!",
-    "sendVerificationEmailSuccess": "Gửi email xác minh thành công!",
-    "sendVerificationEmailError": "Gửi email xác minh thất bại.",
-    "resendVerificationEmailButton": "Gửi lại email xác minh",
+    "sendVerificationEmailButton": "Gửi lại email xác minh",
     "emailLabel": "Email",
     "passwordLabel": "Mật khẩu",
     "repasswordLabel": "Nhập lại mật khẩu",
@@ -103,10 +98,15 @@
   },
   "ResponseMessage": {
     "SIGN_IN_SUCCESS": "Đăng nhập thành công",
-    "BAD_REQUEST": "Yêu cầu không hợp lệ",
     "EMAIL_OR_PASSWORD_INVALID": "Email hoặc mật khẩu không hợp lệ",
     "USER_NOT_ENABLED": "Người dùng chưa được kích hoạt",
     "USER_LOCKED": "Người dùng đã bị khóa",
+    "SIGN_UP_SUCCESS": "Đăng ký thành công!",
+    "SEND_VERIFICATION_EMAIL_SUCCESS": "Gửi email xác minh thành công!",
+    "USER_ALREADY_ENABLED": "Người dùng đã được kích hoạt",
+    "VERIFICATION_TOKEN_ALREADY_SENT": "Mã xác minh đã được gửi! Vui lòng chờ trước khi yêu cầu mã mới.",
+    "USER_EMAIL_ALREADY_EXISTS": "Email đã tồn tại",
+    "BAD_REQUEST": "Yêu cầu không hợp lệ",
     "INTERNAL_SERVER_ERROR": "Lỗi máy chủ nội bộ"
   }
 }

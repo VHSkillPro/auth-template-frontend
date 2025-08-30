@@ -9,9 +9,7 @@
     "passwordRequired": "Password is required",
     "signInButton": "Sign In",
     "signUpButton": "Sign Up",
-    "forgotPassword": "Forgot Password?",
-    "signInSuccess": "Sign in successfully!",
-    "emailOrPasswordInvalid": "Email or password is invalid"
+    "forgotPassword": "Forgot Password?"
   },
   "SignUpPage": {
     "title": "Sign Up",
@@ -31,10 +29,7 @@
     "signUpButton": "Sign Up",
     "signInButton": "Back to Sign In",
     "emailExisted": "Email already exists",
-    "signUpSuccess": "Sign up successfully!",
-    "sendVerificationEmailSuccess": "Verification email sent successfully!",
-    "sendVerificationEmailError": "Failed to send verification email.",
-    "resendVerificationEmailButton": "Re-send verification email",
+    "sendVerificationEmailButton": "Send verification email",
     "emailLabel": "Email",
     "passwordLabel": "Password",
     "repasswordLabel": "Re-enter Password",
@@ -103,10 +98,15 @@
   },
   "ResponseMessage": {
     "SIGN_IN_SUCCESS": "Sign in successfully",
-    "BAD_REQUEST": "Bad request",
     "EMAIL_OR_PASSWORD_INVALID": "Email or password is invalid",
     "USER_NOT_ENABLED": "User is not enabled",
     "USER_LOCKED": "User is locked",
+    "SIGN_UP_SUCCESS": "Sign up successfully",
+    "SEND_VERIFICATION_EMAIL_SUCCESS": "Verification email sent successfully!",
+    "USER_ALREADY_ENABLED": "User is already enabled",
+    "VERIFICATION_TOKEN_ALREADY_SENT": "Verification token has already been sent! Please wait before requesting a new one.",
+    "USER_EMAIL_ALREADY_EXISTS": "Email already exists",
+    "BAD_REQUEST": "Bad request",
     "INTERNAL_SERVER_ERROR": "Internal server error"
   }
 }
