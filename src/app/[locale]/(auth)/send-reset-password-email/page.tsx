@@ -10,10 +10,12 @@ import { useState } from 'react';
 import { sendResetPasswordEmailAction } from './action';
 
 export default function SendResetPasswordEmailPage() {
+  const t = useTranslations('SendResetPasswordEmailPage');
+  const tResponseMessage = useTranslations('ResponseMessage');
+
   const router = useRouter();
   const { notifySuccess, notifyError } = useNotification();
   const [loading, setLoading] = useState<boolean>(false);
-  const t = useTranslations('SendResetPasswordEmailPage');
   const [form] = Form.useForm<ISendResetPasswordEmailForm>();
 
   /**
@@ -30,10 +32,10 @@ export default function SendResetPasswordEmailPage() {
 
     const data = await sendResetPasswordEmailAction(form);
     if (data.success) {
-      notifySuccess(t('sendResetPasswordEmailSuccess'));
+      notifySuccess(tResponseMessage(data.message));
       router.push('/sign-in');
     } else {
-      notifyError(t('sendResetPasswordEmailError'));
+      notifyError(tResponseMessage(data.message));
     }
 
     setLoading(false);
@@ -47,7 +49,7 @@ export default function SendResetPasswordEmailPage() {
       }}
     >
       <Typography style={{ textAlign: 'center' }}>
-        <Title level={2}>{t('title')}</Title>
+        <Title>{t('title')}</Title>
         <Divider />
       </Typography>
 

@@ -72,9 +72,7 @@
     "repasswordInvalid": "Mật khẩu không khớp",
     "passwordLabel": "Mật khẩu",
     "repasswordLabel": "Nhập lại mật khẩu",
-    "resetPasswordButton": "Đặt lại mật khẩu",
-    "resetPasswordSuccess": "Đặt lại mật khẩu thành công!",
-    "resetPasswordError": "Đặt lại mật khẩu thất bại."
+    "resetPasswordButton": "Đặt lại mật khẩu"
   },
   "NotFoundPage": {
     "title": "Không tìm thấy trang",
@@ -98,12 +96,15 @@
     "SIGN_IN_SUCCESS": "Đăng nhập thành công",
     "EMAIL_OR_PASSWORD_INVALID": "Email hoặc mật khẩu không hợp lệ",
     "USER_NOT_ENABLED": "Người dùng chưa được kích hoạt",
+    "USER_NOT_FOUND": "Người dùng không tồn tại",
     "USER_LOCKED": "Người dùng đã bị khóa",
     "SIGN_UP_SUCCESS": "Đăng ký thành công!",
     "SEND_VERIFICATION_EMAIL_SUCCESS": "Gửi email xác minh thành công!",
     "USER_ALREADY_ENABLED": "Người dùng đã được kích hoạt",
     "VERIFICATION_TOKEN_ALREADY_SENT": "Mã xác minh đã được gửi! Vui lòng chờ trước khi yêu cầu mã mới.",
     "USER_EMAIL_ALREADY_EXISTS": "Email đã tồn tại",
+    "RESET_PASSWORD_EMAIL_SENT": "Gửi email đặt lại mật khẩu thành công!",
+    "RESET_PASSWORD_TOKEN_ALREADY_SENT": "Mã thông báo đặt lại mật khẩu đã được gửi! Vui lòng chờ trước khi yêu cầu mã mới.",
     "BAD_REQUEST": "Yêu cầu không hợp lệ",
     "INTERNAL_SERVER_ERROR": "Lỗi máy chủ nội bộ"
   }
