@@ -14,6 +14,8 @@ import { useNotification } from '@/context/NotificationProvider';
 
 export default function ResetPasswordPage() {
   const t = useTranslations('ResetPasswordPage');
+  const tResponseMessage = useTranslations('ResponseMessage');
+
   const searchParams = useSearchParams();
   const token = searchParams.get('token');
   const [form] = Form.useForm<IResetPasswordForm>();
@@ -40,10 +42,10 @@ export default function ResetPasswordPage() {
 
     const data = await resetPasswordAction(resetPasswordForm);
     if (data.success) {
-      notifySuccess(t('resetPasswordSuccess'));
+      notifySuccess(tResponseMessage(data.message));
       router.push('/sign-in');
     } else {
-      notifyError(t('resetPasswordError'));
+      notifyError(tResponseMessage(data.message));
     }
 
     setLoading(false);
@@ -57,7 +59,7 @@ export default function ResetPasswordPage() {
       }}
     >
       <Typography style={{ textAlign: 'center' }}>
-        <Title level={2}>{t('title')}</Title>
+        <Title>{t('title')}</Title>
         <Divider />
       </Typography>
 
