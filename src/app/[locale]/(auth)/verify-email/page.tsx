@@ -9,19 +9,24 @@ import { Fragment, useEffect, useState } from 'react';
 import { verifyEmailAction } from './action';
 
 export default function VerifyEmailPage() {
+  const t = useTranslations('VerifyEmailPage');
+  const tResponseMessage = useTranslations('ResponseMessage');
+
   const searchParams = useSearchParams();
   const token = searchParams.get('token');
-  const t = useTranslations('VerifyEmailPage');
   const [emailVerified, setEmailVerified] = useState<boolean | null>(null);
+  const [message, setMessage] = useState<string>('');
 
   useEffect(() => {
     const verifyEmail = async () => {
       if (!token) {
         setEmailVerified(false);
+        setMessage('VERIFICATION_TOKEN_NOT_FOUND');
         return;
       }
       const response = await verifyEmailAction(token);
       setEmailVerified(response.success);
+      setMessage(response.message);
     };
     verifyEmail();
   }, [token]);
@@ -40,7 +45,9 @@ export default function VerifyEmailPage() {
       return (
         <Fragment>
           <CloseCircleOutlined style={{ color: 'red', fontSize: '48px' }} />
-          <Typography>{t('emailNotVerified')}</Typography>
+          <Typography>
+            <Typography.Text>{tResponseMessage(message)}</Typography.Text>
+          </Typography>
         </Fragment>
       );
     }
@@ -48,7 +55,9 @@ export default function VerifyEmailPage() {
     return (
       <Fragment>
         <CheckCircleOutlined style={{ color: 'green', fontSize: '48px' }} />
-        <Typography>{t('emailVerified')}</Typography>
+        <Typography>
+          <Typography.Text>{tResponseMessage(message)}</Typography.Text>
+        </Typography>
       </Fragment>
     );
   };
@@ -61,7 +70,7 @@ export default function VerifyEmailPage() {
       }}
     >
       <Typography style={{ textAlign: 'center' }}>
-        <Title level={2}>{t('title')}</Title>
+        <Title>{t('title')}</Title>
         <Divider />
       </Typography>
       <Flex gap="middle" align="center" justify="center">
