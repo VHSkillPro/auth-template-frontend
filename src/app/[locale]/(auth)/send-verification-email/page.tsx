@@ -10,11 +10,13 @@ import { useState } from 'react';
 import { sendVerificationEmailAction } from './action';
 import { useNotification } from '@/context/NotificationProvider';
 
-export default function ResendVerificationEmailPage() {
+export default function SendVerificationEmailPage() {
+  const t = useTranslations('SendVerificationEmailPage');
+  const tResponseMessage = useTranslations('ResponseMessage');
+
   const router = useRouter();
   const { notifySuccess, notifyError } = useNotification();
   const [loading, setLoading] = useState<boolean>(false);
-  const t = useTranslations('ResendVerificationEmailPage');
   const [form] = Form.useForm<IResendVerificationEmailForm>();
 
   /**
@@ -29,10 +31,10 @@ export default function ResendVerificationEmailPage() {
 
     const data = await sendVerificationEmailAction(form);
     if (data.success) {
-      notifySuccess(t('sendVerificationEmailSuccess'));
+      notifySuccess(tResponseMessage(data.message));
       router.push('/sign-in');
     } else {
-      notifyError(t('sendVerificationEmailError'));
+      notifyError(tResponseMessage(data.message));
     }
 
     setLoading(false);
@@ -46,7 +48,7 @@ export default function ResendVerificationEmailPage() {
       }}
     >
       <Typography style={{ textAlign: 'center' }}>
-        <Title level={2}>{t('title')}</Title>
+        <Title>{t('title')}</Title>
         <Divider />
       </Typography>
 

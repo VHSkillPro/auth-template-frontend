@@ -36,15 +36,13 @@
     "firstNameLabel": "Tên",
     "lastNameLabel": "Họ"
   },
-  "ResendVerificationEmailPage": {
-    "title": "Gửi lại email xác minh",
+  "SendVerificationEmailPage": {
+    "title": "Gửi email xác minh",
     "emailPlaceholder": "Nhập email của bạn",
     "emailRequired": "Vui lòng nhập email",
     "emailInvalid": "Địa chỉ email không hợp lệ",
     "sendEmailButton": "Gửi",
     "signInButton": "Quay lại đăng nhập",
-    "sendVerificationEmailSuccess": "Gửi email xác minh thành công!",
-    "sendVerificationEmailError": "Gửi email xác minh thất bại.",
     "emailLabel": "Email"
   },
   "VerifyEmailPage": {

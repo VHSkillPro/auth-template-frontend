@@ -36,15 +36,13 @@
     "firstNameLabel": "First Name",
     "lastNameLabel": "Last Name"
   },
-  "ResendVerificationEmailPage": {
-    "title": "Resend Verification Email",
+  "SendVerificationEmailPage": {
+    "title": "Send Verification Email",
     "emailPlaceholder": "Enter your email",
     "emailRequired": "Email is required",
     "emailInvalid": "Invalid email address",
     "sendEmailButton": "Send",
     "signInButton": "Back to Sign In",
-    "sendVerificationEmailSuccess": "Verification email sent successfully!",
-    "sendVerificationEmailError": "Failed to send verification email.",
     "emailLabel": "Email"
   },
   "VerifyEmailPage": {
