@@ -6,18 +6,19 @@ import {
   ProfileOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import { Avatar, Dropdown, MenuProps, Space, Spin, Typography } from 'antd';
+import { Avatar, Dropdown, MenuProps, Skeleton, Space, Typography } from 'antd';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'use-intl';
 import { signOutAction } from '../../(auth)/action';
 import { useNotification } from '@/context/NotificationProvider';
 
 export default function ProfileDropdown() {
+  const t = useTranslations('ProfileDropdown');
+  const tResponseMessage = useTranslations('ResponseMessage');
+
   const router = useRouter();
   const { profile, signOut, setLoading } = useAuth();
   const { avatarUrl, isLoading } = useAvatar();
-  const t = useTranslations('ProfileDropdown');
-  const tCommon = useTranslations('Common');
   const { notifySuccess, notifyError } = useNotification();
 
   /**
@@ -31,9 +32,9 @@ export default function ProfileDropdown() {
     if (data.success) {
       router.push('/sign-in');
       signOut();
-      notifySuccess(tCommon('signOutSuccess'));
+      notifySuccess(tResponseMessage(data.message));
     } else {
-      notifyError(tCommon('signOutError'));
+      notifyError(tResponseMessage(data.message));
     }
 
     setTimeout(() => {
@@ -56,7 +57,7 @@ export default function ProfileDropdown() {
       label: t('signOut'),
       icon: <LogoutOutlined />,
       danger: true,
-      onClick: handleSignOut, // Đăng xuất và chuyển hướng về trang chủ
+      onClick: handleSignOut,
     },
   ];
 
@@ -68,9 +69,7 @@ export default function ProfileDropdown() {
   const renderAvatar = () => {
     if (isLoading) {
       return (
-        <Spin size="small">
-          <Avatar />
-        </Spin>
+        <Skeleton.Avatar active shape="circle" style={{ margin: '16px 0px' }} />
       );
     }
 

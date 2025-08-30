@@ -56,9 +56,7 @@
     "emailInvalid": "Invalid email address",
     "emailPlaceholder": "Enter your email",
     "sendEmailButton": "Send",
-    "signInButton": "Back to Sign In",
-    "sendResetPasswordEmailSuccess": "Reset password email sent successfully!",
-    "sendResetPasswordEmailError": "Failed to send reset password email."
+    "signInButton": "Back to Sign In"
   },
   "ResetPasswordPage": {
     "title": "Reset Password",
@@ -86,9 +84,7 @@
   },
   "Common": {
     "serverError": "Internal server error",
-    "unauthorized": "Unauthorized",
-    "signOutSuccess": "Signed out successfully!",
-    "signOutError": "Sign out failed."
+    "unauthorized": "Unauthorized"
   },
   "ResponseMessage": {
     "SIGN_IN_SUCCESS": "Sign in successfully",
@@ -99,15 +95,17 @@
     "SIGN_UP_SUCCESS": "Sign up successfully",
     "SEND_VERIFICATION_EMAIL_SUCCESS": "Verification email sent successfully!",
     "USER_ALREADY_ENABLED": "User is already enabled",
-    "VERIFICATION_TOKEN_ALREADY_SENT": "Verification token has already been sent! Please wait before requesting a new one.",
+    "VERIFICATION_TOKEN_ALREADY_SENT": "Verification token has already been sent! Please wait before requesting a new one",
     "USER_EMAIL_ALREADY_EXISTS": "Email already exists",
     "RESET_PASSWORD_EMAIL_SENT": "Reset password email sent successfully!",
-    "RESET_PASSWORD_TOKEN_ALREADY_SENT": "Reset password token has already been sent! Please wait before requesting a new one.",
+    "RESET_PASSWORD_TOKEN_ALREADY_SENT": "Reset password token has already been sent! Please wait before requesting a new one",
     "EMAIL_VERIFY_SUCCESS": "Email verification successful!",
-    "INVALID_VERIFICATION_TOKEN": "Invalid verification token.",
-    "VERIFICATION_TOKEN_NOT_FOUND": "Verification token not found.",
+    "INVALID_VERIFICATION_TOKEN": "Invalid verification token",
+    "VERIFICATION_TOKEN_NOT_FOUND": "Verification token not found",
     "RESET_PASSWORD_SUCCESS": "Password reset successfully!",
-    "INVALID_RESET_PASSWORD_TOKEN": "Invalid reset password token.",
+    "INVALID_RESET_PASSWORD_TOKEN": "Invalid reset password token",
+    "SIGN_OUT_SUCCESS": "Sign out successfully!",
+    "INVALID_REFRESH_TOKEN": "Invalid refresh token",
     "BAD_REQUEST": "Bad request",
     "INTERNAL_SERVER_ERROR": "Internal server error"
   }
