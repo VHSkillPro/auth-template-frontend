@@ -82,6 +82,11 @@
     "title": "Lỗi máy chủ nội bộ",
     "subTitle": "Xin lỗi, đã xảy ra sự cố trên máy chủ của chúng tôi."
   },
+  "Main": {
+    "Sider": {
+      "role": "Chức vụ"
+    }
+  },
   "Common": {
     "serverError": "Lỗi máy chủ nội bộ",
     "unauthorized": "Xác thực không thành công"

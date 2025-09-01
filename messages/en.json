@@ -82,6 +82,11 @@
     "title": "Internal Server Error",
     "subTitle": "Sorry, something went wrong on our end."
   },
+  "Main": {
+    "Sider": {
+      "role": "Role"
+    }
+  },
   "Common": {
     "serverError": "Internal server error",
     "unauthorized": "Unauthorized"
