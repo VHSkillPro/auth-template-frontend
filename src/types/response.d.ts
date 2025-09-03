@@ -22,6 +22,36 @@ export interface IDataApiResponse<T> extends IApiResponse {
 }
 
 /**
+ * Metadata information for paginated API responses.
+ *
+ * @property page - The current page number.
+ * @property size - The number of items per page.
+ * @property total - The total number of items available.
+ * @property pages - The total number of pages available.
+ * @property sort - The sorting criteria applied to the results.
+ */
+export interface IPageableMetaResponse {
+  page: number;
+  size: number;
+  total: number;
+  pages: number;
+  sort: string;
+}
+
+/**
+ * Represents a paged API response structure.
+ *
+ * @template T The type of items contained in the response data array.
+ * @extends IApiResponse
+ * @property {T[]} data - The array of items returned by the API.
+ * @property {IPageableMetaResponse} meta - Metadata about the pagination, such as page number and total count.
+ */
+export interface IPagedApiResponse<T> extends IApiResponse {
+  data: T[];
+  meta: IPageableMetaResponse;
+}
+
+/**
  * Represents the structure of errors returned in a bad request response.
  *
  * @property errors - An object where each key is the name of a field or parameter,

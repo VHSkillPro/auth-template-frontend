@@ -13,6 +13,9 @@ const API = {
   USER: {
     GET_AVATAR_URL: '/api/v1/user/avatar',
   },
+  ROLE: {
+    INDEX: '/api/v1/role',
+  },
 };
 
 export default API;

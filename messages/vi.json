@@ -85,11 +85,36 @@
   "Main": {
     "Sider": {
       "role": "Chức vụ"
+    },
+    "RolePage": {
+      "title": "Quản lý chức vụ",
+      "createButton": "Tạo chức vụ",
+      "filterButton": "Tìm kiếm",
+      "DataTable": {
+        "Columns": {
+          "action": "Hành động",
+          "name": "Mã chức vụ",
+          "title": "Tên chức vụ",
+          "description": "Mô tả"
+        }
+      },
+      "Filter": {
+        "title": "Tìm kiếm chức vụ",
+        "keywordLabel": "Từ khóa",
+        "keywordPlaceholder": "Nhập từ khóa",
+        "keywordTooltip": "Tìm kiếm (tương đối) theo tên và tiêu đề",
+        "confirm": "Xác nhận",
+        "filterSuccess": "Tìm kiếm thành công",
+        "cancel": "Hủy bỏ",
+        "reset": "Đặt lại",
+        "resetSuccess": "Đặt lại thành công"
+      }
+    },
+    "Common": {
+      "total": "Hiển thị từ {from} đến {to} của {total} mục",
+      "viewTooltip": "Xem chi tiết",
+      "deleteTooltip": "Xóa"
     }
-  },
-  "Common": {
-    "serverError": "Lỗi máy chủ nội bộ",
-    "unauthorized": "Xác thực không thành công"
   },
   "ResponseMessage": {
     "SIGN_IN_SUCCESS": "Đăng nhập thành công",
@@ -111,7 +136,10 @@
     "INVALID_RESET_PASSWORD_TOKEN": "Mã thông báo đặt lại mật khẩu không hợp lệ",
     "SIGN_OUT_SUCCESS": "Đăng xuất thành công!",
     "INVALID_REFRESH_TOKEN": "Mã thông báo làm mới không hợp lệ",
+    "ROLE_INDEX_SUCCESS": "Lấy danh sách chức vụ thành công",
     "BAD_REQUEST": "Yêu cầu không hợp lệ",
+    "UNAUTHORIZED": "Xác thực không thành công",
+    "FORBIDDEN": "Không có quyền truy cập",
     "INTERNAL_SERVER_ERROR": "Lỗi máy chủ nội bộ"
   }
 }
