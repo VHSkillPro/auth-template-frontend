@@ -4,7 +4,9 @@ import { getListRolesAction } from './action';
 import RoleTable from './_component/RoleTable';
 import RoleHeader from './_component/RoleHeader';
 import RoleFilter from './_component/RoleFilter';
-import { Button, Flex } from 'antd';
+import { Flex } from 'antd';
+import RoleCreate from './_component/RoleCreate';
+import { getAllPermissionsAction } from '../permission/action';
 
 interface IRolePageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -21,14 +23,14 @@ export default async function RolePage({ searchParams }: IRolePageProps) {
   };
 
   const data = await getListRolesAction(params);
+  const allPermissionsData = await getAllPermissionsAction();
 
   return (
     <Fragment>
       <RoleHeader />
       <Flex style={{ margin: '8px 0' }} justify="space-between">
         <Flex gap={8}>
-          <Button>adwadwa</Button>
-          <Button>adwadwad</Button>
+          <RoleCreate permissionsData={allPermissionsData} />
         </Flex>
         <Flex gap={8}>
           <RoleFilter />

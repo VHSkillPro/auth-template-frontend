@@ -108,12 +108,26 @@
         "cancel": "Hủy bỏ",
         "reset": "Đặt lại",
         "resetSuccess": "Đặt lại thành công"
+      },
+      "Create": {
+        "title": "Tạo chức vụ",
+        "nameLabel": "Mã chức vụ",
+        "namePlaceholder": "Nhập mã chức vụ",
+        "nameRequired": "Mã chức vụ không được trống",
+        "titleLabel": "Tên chức vụ",
+        "titlePlaceholder": "Nhập tên chức vụ",
+        "titleRequired": "Tên chức vụ không được trống",
+        "descriptionLabel": "Mô tả chức vụ",
+        "descriptionPlaceholder": "Nhập mô tả chức vụ",
+        "permissionIdsLabel": "Danh sách quyền của chức vụ"
       }
     },
     "Common": {
       "total": "Hiển thị từ {from} đến {to} của {total} mục",
       "viewTooltip": "Xem chi tiết",
-      "deleteTooltip": "Xóa"
+      "deleteTooltip": "Xóa",
+      "create": "Tạo",
+      "cancel": "Hủy bỏ"
     }
   },
   "ResponseMessage": {
@@ -137,6 +151,8 @@
     "SIGN_OUT_SUCCESS": "Đăng xuất thành công!",
     "INVALID_REFRESH_TOKEN": "Mã thông báo làm mới không hợp lệ",
     "ROLE_INDEX_SUCCESS": "Lấy danh sách chức vụ thành công",
+    "ROLE_CREATE_SUCCESS": "Tạo chức vụ thành công",
+    "ROLE_ALREADY_EXISTS": "Chức vụ đã tồn tại",
     "BAD_REQUEST": "Yêu cầu không hợp lệ",
     "UNAUTHORIZED": "Xác thực không thành công",
     "FORBIDDEN": "Không có quyền truy cập",

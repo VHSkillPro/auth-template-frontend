@@ -30,3 +30,18 @@ export interface IRole {
 export interface IRolePaginationParams extends IBasePaginationParams {
   keyword?: string;
 }
+
+/**
+ * Represents the form data required to create a new role.
+ *
+ * @property name - The unique name identifier for the role.
+ * @property title - The display title of the role.
+ * @property description - A brief description of the role's purpose.
+ * @property permissionIds - An array of permission IDs associated with the role.
+ */
+export interface IRoleCreateForm {
+  name: string;
+  title: string;
+  description: string;
+  permissionIds: number[];
+}

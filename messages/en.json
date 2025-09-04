@@ -108,12 +108,26 @@
         "cancel": "Cancel",
         "reset": "Reset",
         "resetSuccess": "Reset successfully"
+      },
+      "Create": {
+        "title": "Create Role",
+        "nameLabel": "Role name",
+        "namePlaceholder": "Enter role name",
+        "nameRequired": "Role name is required",
+        "titleLabel": "Role title",
+        "titlePlaceholder": "Enter role title",
+        "titleRequired": "Role title is required",
+        "descriptionLabel": "Role description",
+        "descriptionPlaceholder": "Enter role description",
+        "permissionIdsLabel": "Permissions of role"
       }
     },
     "Common": {
       "total": "Showing {from} to {to} of {total} entries",
       "viewTooltip": "View details",
-      "deleteTooltip": "Delete"
+      "deleteTooltip": "Delete",
+      "create": "Create",
+      "cancel": "Cancel"
     }
   },
   "ResponseMessage": {
@@ -137,6 +151,8 @@
     "SIGN_OUT_SUCCESS": "Sign out successfully!",
     "INVALID_REFRESH_TOKEN": "Invalid refresh token",
     "ROLE_INDEX_SUCCESS": "Role retrieved successfully",
+    "ROLE_CREATE_SUCCESS": "Role created successfully",
+    "ROLE_ALREADY_EXISTS": "Role already exists",
     "BAD_REQUEST": "Bad request",
     "UNAUTHORIZED": "Unauthorized",
     "FORBIDDEN": "Forbidden",

@@ -2,7 +2,16 @@
 
 import API from '@/config/api';
 import { api } from '@/lib/api-client';
-import { IPagedApiResponse, IRole, IRolePaginationParams } from '@/types';
+import {
+  IApiResponse,
+  IBadRequestErrors,
+  IDataApiResponse,
+  IPagedApiResponse,
+  IRole,
+  IRoleCreateForm,
+  IRolePaginationParams,
+} from '@/types';
+import { revalidateTag } from 'next/cache';
 import { cookies } from 'next/headers';
 
 /**
@@ -43,6 +52,33 @@ export const getListRolesAction = async (params: IRolePaginationParams) => {
       },
     }
   );
+
+  return data;
+};
+
+/**
+ * Creates a new role by sending the provided form data to the API.
+ * Retrieves the access token from cookies and includes it in the request headers for authentication.
+ * If the role creation is successful, triggers revalidation for the 'role' tag.
+ *
+ * @param formData - The data required to create a new role.
+ * @returns The API response containing the result of the role creation.
+ */
+export const createRoleAction = async (formData: IRoleCreateForm) => {
+  const cookieStore = await cookies();
+  const accessToken = cookieStore.get('accessToken')?.value || '';
+
+  const data = await api.post<
+    IApiResponse | IDataApiResponse<IBadRequestErrors>
+  >(API.ROLE.CREATE, formData, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+
+  if (data.success) {
+    revalidateTag('role');
+  }
 
   return data;
 };
