@@ -8,7 +8,6 @@ import {
   IRolePaginationParams,
 } from '@/types';
 import {
-  DeleteOutlined,
   EditOutlined,
   EyeOutlined,
   InfoCircleOutlined,
@@ -17,6 +16,7 @@ import { Button, Flex, Table, TableProps, Tooltip } from 'antd';
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Key } from 'react';
+import RoleDelete from './RoleDelete';
 
 interface IRoleDataType extends IRole {
   key: Key;
@@ -119,14 +119,7 @@ export default function RoleTable({ data, paginationParams }: IRoleTableProps) {
           <Tooltip title={tMain('Common.viewTooltip')}>
             <Button type="primary" size="small" icon={<EyeOutlined />} />
           </Tooltip>
-          <Tooltip title={tMain('Common.deleteTooltip')}>
-            <Button
-              type="primary"
-              danger
-              size="small"
-              icon={<DeleteOutlined />}
-            />
-          </Tooltip>
+          <RoleDelete roleId={role.id} />
         </Flex>
       ),
     }));

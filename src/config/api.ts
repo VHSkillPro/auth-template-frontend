@@ -16,6 +16,7 @@ const API = {
   ROLE: {
     INDEX: '/api/v1/role',
     CREATE: '/api/v1/role',
+    DELETE: '/api/v1/role',
   },
   PERMISSION: {
     INDEX: '/api/v1/permission',

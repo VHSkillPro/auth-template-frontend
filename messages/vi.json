@@ -120,6 +120,12 @@
         "descriptionLabel": "Mô tả chức vụ",
         "descriptionPlaceholder": "Nhập mô tả chức vụ",
         "permissionIdsLabel": "Danh sách quyền của chức vụ"
+      },
+      "Delete": {
+        "title": "Xóa chức vụ",
+        "description": "Bạn có chắc chắn muốn xóa chức vụ này không?",
+        "confirm": "Xóa",
+        "cancel": "Hủy bỏ"
       }
     },
     "Common": {
@@ -152,7 +158,9 @@
     "INVALID_REFRESH_TOKEN": "Mã thông báo làm mới không hợp lệ",
     "ROLE_INDEX_SUCCESS": "Lấy danh sách chức vụ thành công",
     "ROLE_CREATE_SUCCESS": "Tạo chức vụ thành công",
+    "ROLE_DELETE_SUCCESS": "Xóa chức vụ thành công",
     "ROLE_ALREADY_EXISTS": "Chức vụ đã tồn tại",
+    "ROLE_DELETE_CONFLICT": "Không thể xóa chức vụ vì nó đã được gán cho một hoặc nhiều người dùng",
     "BAD_REQUEST": "Yêu cầu không hợp lệ",
     "UNAUTHORIZED": "Xác thực không thành công",
     "FORBIDDEN": "Không có quyền truy cập",

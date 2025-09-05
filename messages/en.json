@@ -120,6 +120,12 @@
         "descriptionLabel": "Role description",
         "descriptionPlaceholder": "Enter role description",
         "permissionIdsLabel": "Permissions of role"
+      },
+      "Delete": {
+        "title": "Delete Role",
+        "description": "Are you sure you want to delete this role?",
+        "confirm": "Delete",
+        "cancel": "Cancel"
       }
     },
     "Common": {
@@ -152,7 +158,9 @@
     "INVALID_REFRESH_TOKEN": "Invalid refresh token",
     "ROLE_INDEX_SUCCESS": "Role retrieved successfully",
     "ROLE_CREATE_SUCCESS": "Role created successfully",
+    "ROLE_DELETE_SUCCESS": "Role deleted successfully",
     "ROLE_ALREADY_EXISTS": "Role already exists",
+    "ROLE_DELETE_CONFLICT": "Cannot delete role because it is assigned to one or more users",
     "BAD_REQUEST": "Bad request",
     "UNAUTHORIZED": "Unauthorized",
     "FORBIDDEN": "Forbidden",

@@ -82,3 +82,26 @@ export const createRoleAction = async (formData: IRoleCreateForm) => {
 
   return data;
 };
+
+/**
+ * Deletes a role by its ID and revalidates the 'role' tag if successful.
+ *
+ * @param roleId - The unique identifier of the role to delete.
+ * @returns A promise that resolves to the API response indicating the result of the delete operation.
+ */
+export const deleteRoleAction = async (roleId: number) => {
+  const cookieStore = await cookies();
+  const accessToken = cookieStore.get('accessToken')?.value || '';
+
+  const data = await api.delete<IApiResponse>(`${API.ROLE.DELETE}/${roleId}`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+
+  if (data.success) {
+    revalidateTag('role');
+  }
+
+  return data;
+};

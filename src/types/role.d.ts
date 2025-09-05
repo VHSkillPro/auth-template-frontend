@@ -11,7 +11,7 @@ import { IBasePaginationParams } from './request';
  * @property updatedAt - Timestamp when the role was last updated.
  */
 export interface IRole {
-  id: string;
+  id: number;
   name: string;
   title: string;
   description: string;
