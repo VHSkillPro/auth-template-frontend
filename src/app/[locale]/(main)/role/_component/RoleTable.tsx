@@ -158,6 +158,8 @@ export default function RoleTable({ data, paginationParams }: IRoleTableProps) {
         'sort',
         `${sorter.field},${sorter.order === 'ascend' ? 'asc' : 'desc'}`
       );
+    } else {
+      newSearchParams.delete('sort');
     }
 
     router.push(`${pathname}?${newSearchParams.toString()}`);
